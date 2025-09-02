@@ -11,6 +11,8 @@ const saveAiMessage = async (
   refreshChats: () => void,
   messageId?: string
 ) => {
+  console.log(userID);
+  
   try {
     await fetch(`${BaseURL}/api/chats/${chatId}`, {
       method: 'PUT',
@@ -37,6 +39,8 @@ const saveUserMessage = async (
   files: FileAttachment[],
   updateChatTimestamp: (chatId: string) => void,
 ) => {
+  console.log(userID);
+
   try {
     const response = await fetch(`${BaseURL}/api/chats/${chatId}/user`, {
       method: 'PUT',
@@ -69,6 +73,8 @@ const saveModelMessage = async (
   answer: string,
   messageId: any
 ) => {
+  console.log(userID);
+
   try {
     const response = await fetch(`${BaseURL}/api/chats/${chatId}/ai`, {
       method: 'PUT',
