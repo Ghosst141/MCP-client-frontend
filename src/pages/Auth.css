@@ -1,0 +1,158 @@
+/* Auth.css */
+.auth-page {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.auth-page h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.auth-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-page input {
+  padding: 12px 15px;
+  outline: none;
+  border: 1px solid rgba(229, 231, 235, 0.4); 
+  border-radius: 0.75rem;
+  font-size: 15px;  
+  transition: border-color 0.2s;
+  background-color: #212121;
+  color: white;
+}
+
+.auth-page input:focus {
+  border: 0.1px solid #10b981;
+}
+
+.auth-page button[type="submit"] {
+  background-color: #047857;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.auth-page button[type="submit"]:hover {
+  background-color: #065f46;
+}
+
+.auth-page .error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.auth-page p {
+  margin-top: 1.25rem;
+  font-size: 14px;
+}
+
+.auth-page p a {
+  color: #047857;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.auth-page p a:hover {
+  text-decoration: underline;
+}
+
+/* Divider */
+.auth-page .divider {
+  display: flex;
+  align-items: center;
+  margin: 25px 0;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.auth-page .divider::before,
+.auth-page .divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+  margin: 0 10px;
+}
+
+/* Social login buttons */
+.social-logins {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social-logins button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid #e5e7eb;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #212121;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.social-logins button svg {
+  /* transform: translateY(1.75px); */
+  display: flex;
+}
+
+.social-logins button:hover {
+  background: #f9fafb;
+  color: black;
+}
+
+/* Optional: specific colors for icons */
+.social-logins button.google {
+  color: #ea4335;
+}
+
+.social-logins button.github {
+  color: #333;
+}
+
+.social-logins button.discord {
+  color: #5865f2;
+}
+
+.social-logins button.hf {
+  color: #ffcc4d;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  margin: 25px 0;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+  margin: 0 10px;
+}
+

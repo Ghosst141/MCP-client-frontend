@@ -1,0 +1,424 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #16171a;
+  color: #fafafa;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  background: #16171a;
+}
+
+/* .message {
+  padding: 12px 18px;
+  border-radius: 20px;
+  max-width: 75%;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+.message.user {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+}
+
+.message.ai {
+  background-color: #2c2d30;
+  color: #fafafa;
+  align-self: flex-start;
+  border-bottom-left-radius: 5px;
+} */
+
+
+
+/* Main sidebar container */
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background: var(--sidebar-bg);
+  color: #ececec;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-right: 1px solid #2f2f2f;
+  transition: width 0.1s ease-in-out, padding 0.1s ease-in-out;
+  overflow-y: auto;
+}
+
+/* For browsers that support `scrollbar-*` properties */
+
+.sidebar {
+  scrollbar-color: var(--scrollbar-color) transparent;
+}
+
+
+
+.sidebar::-webkit-scrollbar {
+  background: var(--scrollbar-color);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+
+/* Header section with title and new chat icon */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0.5rem;
+  /* margin-bottom: 1rem; */
+  height: 2.5rem;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-primary);
+
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.new-chat-icon-btn {
+  background: none;
+  border: none;
+  color: #ececec;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-chat-icon-btn:hover {
+  background-color: #2f2f2f;
+}
+
+/* Main scrollable area for chat history */
+.sidebar-chats {
+  flex-grow: 1;
+  /* This makes the chat list take up all available space */
+  overflow-y: auto;
+  /* Enables scrolling only when needed */
+  padding-right: 4px;
+  /* Space for scrollbar */
+}
+
+/* Hide scrollbar for WebKit browsers but keep it functional */
+.sidebar-chats::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-chats::-webkit-scrollbar-thumb {
+  background-color: #4f4f4f;
+  border-radius: 3px;
+}
+
+.sidebar-chats::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-chats ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-chats li {
+  padding: 12px 10px;
+  color: #ececec;
+  cursor: pointer;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Adds '...' for long chat titles */
+}
+
+.sidebar-chats li:hover {
+  background: #2f2f2f;
+}
+
+/* Footer section anchored to the bottom */
+.sidebar-footer {
+  margin-top: auto;
+  /* Pushes the footer to the bottom */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 8px;
+  border-top: 1px solid #2f2f2f;
+  color: #ececec;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.sidebar-footer:hover {
+  background-color: #2f2f2f;
+}
+
+
+.sidebar-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 90%;
+  margin: 5px auto;
+  padding: 10px 15px;
+  text-align: left;
+  background-color: transparent;
+  color: #e0e0e0;
+  font-size: 1rem;
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Style for when you hover over the button */
+.sidebar-btn:hover {
+  background-color: #343541;
+  /* A dark background color on hover */
+}
+
+
+/* New style for the sidebar when it's closed */
+.sidebar.closed {
+  width: 0;
+  padding: 0;
+  overflow: hidden;
+  /* Hide content when collapsing */
+}
+
+
+.reopen-sidebar-button {
+  /* Positioning */
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  /* Ensure it's on top */
+
+  /* Styling (similar to other buttons) */
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.reopen-sidebar-button:hover {
+  background-color: var(--button-hover);
+}
+
+
+.sidebar-button {
+  background: none;
+  border: 1px solid var(--border-primary);
+  color: var(--text-primary);
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.sidebar-button:hover {
+  /* background-color: #3c3c3c; */
+  background-color: var(--text-secondary);
+
+}
+
+.sidebar-actions {
+  display: flex;
+  flex-grow: 1;
+}
+
+.new-chat-button {
+  flex-grow: 0;
+  margin-left: auto;
+  /*background-color: var(--bg-input); /* Highlighted button */
+}
+
+.chat-history {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
+  padding-inline: 0.5rem;
+  /* overflow-y: auto; */
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: var(--sidebar-bg);
+  border-top: 1px solid var(--border-primary);
+
+  flex-shrink: 0;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.sidebar-profile {
+  display: flex;
+  gap: 0.75rem;
+  /* background-color: #171717; */
+  background-color: var(--sidebar-bg);
+
+  width: 100%;
+  border-radius: 0.5rem;
+  align-items: center;
+  height: 3rem;
+  padding: 0.25rem 0.5rem;
+  color: var(--chatlink-btn-hover);
+
+  box-shadow: var(--profile-shadow);
+  justify-content: space-between;
+
+}
+
+.sidebar-profile:hover {
+  background-color: var(--text-secondary);
+}
+
+.chats-title {
+  margin-top: 0.75rem;
+  padding: 0 0.75rem;
+  color: var(--chatlinks-title);
+}
+
+.user-profile .chat-link-btn {
+    display: flex !important;
+    opacity: 1 !important;
+}
+
+.user-info {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+
+.avatar{
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .app-container {
+    position: relative;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 260px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    /* Override desktop transition properties for mobile */
+    padding: initial;
+    overflow-y: scroll;
+  }
+
+  .sidebar:not(.closed) {
+    transform: translateX(0);
+  }
+
+  .sidebar.closed {
+    transform: translateX(-100%);
+    width: 260px;
+    padding: initial;
+    overflow: initial;
+  }
+
+  /* Disable transitions during resize to prevent flickering */
+  .sidebar.no-transition {
+    transition: none !important;
+  }
+
+  /* Sidebar overlay backdrop */
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+
+  .sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Ensure smooth transition only on larger screens */
+@media (min-width: 769px) {
+  .sidebar {
+    position: static;
+    transform: none;
+    /* transition: width 0.1s ease-in-out, padding 0.1s ease-in-out; */
+  }
+
+  .sidebar.closed {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+    transform: none;
+  }
+
+  
+}
+
+@media (min-width: 790px) {
+
+  .sidebar {
+    transition: width 0.1s ease-in-out, padding 0.1s ease-in-out,
+      background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+  }
+
+}
+@media (min-width: 790px) {
+
+  .sidebar {
+    transition: width 0.1s ease-in-out, padding 0.1s ease-in-out,
+      background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+  }
+
+}
